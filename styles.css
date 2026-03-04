@@ -1,0 +1,237 @@
+:root {
+  --bg: #0f141a;
+  --bg-elev: #151c23;
+  --text: #e6edf3;
+  --text-dim: #9aa7b4;
+  --primary: #4ea1ff;
+  --primary-contrast: #041423;
+  --border: #233040;
+  --chip: #1c252e;
+  --success: #3fb950;
+  --danger: #da3633;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-elev: #f5f7fa;
+  --text: #0c1a27;
+  --text-dim: #516173;
+  --primary: #0366d6;
+  --primary-contrast: #ffffff;
+  --border: #e2e8f0;
+  --chip: #eef2f7;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --bg-elev: #f5f7fa;
+    --text: #0c1a27;
+    --text-dim: #516173;
+    --primary: #0366d6;
+    --primary-contrast: #ffffff;
+    --border: #e2e8f0;
+    --chip: #eef2f7;
+  }
+}
+
+* { box-sizing: border-box }
+html, body { height: 100% }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-elev);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.nav {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.nav a:hover {
+  background: var(--chip);
+}
+#theme-toggle {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.hero {
+  padding: 64px 0 32px;
+  background: linear-gradient(180deg, rgba(78,161,255,0.08), transparent);
+}
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.hero h1 {
+  margin: 0 0 6px;
+  font-size: 46px;
+  line-height: 1.1;
+}
+.subtitle {
+  margin: 0;
+  font-size: 20px;
+  color: var(--text-dim);
+}
+.tagline {
+  margin: 14px 0 20px;
+}
+.cta {
+  display: flex;
+  gap: 12px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+}
+.btn:hover {
+  background: var(--chip);
+}
+.btn.primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: transparent;
+}
+.btn.small {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.section {
+  padding: 36px 0;
+}
+.section h2 {
+  margin: 0 0 18px;
+  font-size: 28px;
+}
+.lead {
+  color: var(--text-dim);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chips li {
+  background: var(--chip);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+}
+
+.contact-list {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.contact-item {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.contact-item:hover {
+  background: var(--chip);
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-elev);
+}
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 36px;
+  }
+}
